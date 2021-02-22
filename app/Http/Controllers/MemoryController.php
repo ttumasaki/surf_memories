@@ -9,11 +9,12 @@ use App\Models\Memory;
 class MemoryController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $values = Memory::all();
 
-        dd($values);
+        // dd($values);
 
-        return view('memories.memory',compact('values'));
+        return view('memories/memory', compact('values'));
     }
 }
