@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('memories/memory','MemoryController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

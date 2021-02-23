@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Memory;
 
+use Illuminate\Support\Facades\DB;
+
 class MemoryController extends Controller
 {
     //
@@ -13,7 +15,9 @@ class MemoryController extends Controller
     {
         $values = Memory::all();
 
-        // dd($values);
+        $memories = DB::table('memories')->get();
+        
+        dd($memories);
 
         return view('memories/memory', compact('values'));
     }
