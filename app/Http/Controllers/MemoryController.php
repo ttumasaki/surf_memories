@@ -16,9 +16,12 @@ class MemoryController extends Controller
         $values = Memory::all();
 
         $memories = DB::table('memories')->get();
-        
-        dd($memories);
 
-        return view('memories/memory', compact('values'));
+        return view('memories/index', compact('values'));
+    }
+
+    public function create()
+    {
+        return view('memories/create');
     }
 }

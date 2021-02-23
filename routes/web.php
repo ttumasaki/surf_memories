@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('memories/memory','MemoryController@index');
+Route::get('memories/index','MemoryController@index');
+Route::get('memories/create','MemoryController@create');
+Route::get('memories/$value/edit','MemoryController@edit');
+Route::get('memories/$value/delete','MemoryController@delete');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
