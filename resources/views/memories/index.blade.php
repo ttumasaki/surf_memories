@@ -15,6 +15,7 @@
                         </div>
                     @endif
 
+
                     確認日時
                     {{$value->date}}<br>
                     波のサイズ
