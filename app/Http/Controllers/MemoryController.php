@@ -17,11 +17,11 @@ class MemoryController extends Controller
 
         $memories = DB::table('memories')->get();
 
-        return view('memories/index', compact('values'));
+        return view('memories.index', compact('values'));
     }
 
     public function create()
     {
-        return view('memories/create');
+        return view('memories.create');
     }
 }

@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('memories/index','MemoryController@index');
-Route::get('memories/create','MemoryController@create');
-Route::get('memories/$value/edit','MemoryController@edit');
-Route::get('memories/$value/delete','MemoryController@delete');
+Route::group(['prefix'=>'memories','middleware'=>'auth'],function(){
+    Route::get('index','MemoryController@index')->name('memories.index');
+    Route::get('create','MemoryController@create');
+    Route::get('$value/edit','MemoryController@edit');
+    Route::get('$value/delete','MemoryController@delete');    
+});
 
 Auth::routes();
 
