@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'memories','middleware'=>'auth'],function(){
     Route::get('index','MemoryController@index')->name('memories.index');
-    Route::get('create','MemoryController@create');
+    Route::get('create','MemoryController@create')->name('memories.create');
     Route::get('$value/edit','MemoryController@edit');
     Route::get('$value/delete','MemoryController@delete');    
 });
