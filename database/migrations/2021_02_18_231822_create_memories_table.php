@@ -22,7 +22,6 @@ class CreateMemoriesTable extends Migration
             $table->integer('state');
             $table->integer('direction');
             $table->integer('people');
-            $table->float('temperature',2,1)->nullable($value = true);
             $table->binary('image')->nullable($value = true);
             $table->timestamps();
         });
