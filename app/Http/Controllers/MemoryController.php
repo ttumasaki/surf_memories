@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 use App\Services\CheckFormData;
 
+use App\Http\Requests\StoreMemory;
+
 class MemoryController extends Controller
 {
     //
@@ -36,10 +38,9 @@ class MemoryController extends Controller
         return view('memories/create');
     }
 
-    public function store(Request $request)
+    public function store(StoreMemory $request)
     {
         $memory = new Memory;
-
 
         $memory->point = $request->input('point');
         $memory->date = $request->input('date');
