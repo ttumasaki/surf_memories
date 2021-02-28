@@ -130,4 +130,12 @@ class MemoryController extends Controller
 
         return redirect('memories/index');
     }
+
+    public function destroy($id)
+    {
+        $memory = Memory::find($id);
+        $memory->delete();
+
+        return redirect('memories/index');
+    }
 }

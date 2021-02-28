@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <form method='GET' action="{{route('memories.create')}}">
+    @csrf
         <button type='submit' class='btn btn-primary'>波情報を登録</button>
     </form>
     <div class="row justify-content-center">
@@ -25,24 +26,28 @@
                 <!-- <li class="list-group-item">波の画像・動画 : {{$memory->image}}</li> -->
                 <li class="list-group-item">
                     <form action="{{ route('memories.edit',['id' => $memory->id ])}}" method="GET">
+                    @csrf
                      <input type="submit" class="btn btn-secondary" value="変更する">
+                    </form>
+                    <form action="{{ route('memories.destroy',['id' => $memory->id ])}}" method="POST" id="delete_{{$memory->id}}">
+                        @csrf
+                        <a href="#" class="btn btn-danger" data-id="{{$memory->id}}" onclick="deletePost(this);">削除する</a>
                     </form>
                 </li>
             @endforeach
-</ul>
-
-
-
-            <!-- <div class="card">
-
-                <div class="card-header"></div>
-
-                <div class="card-body"> -->
-
-                    
-                <!-- </div>
-            </div>
-        </div> -->
+        </ul>
     </div>
 </div>
+
+<script>
+// 削除ボタンを押した際に確認メッセージが出る様に設定
+
+function deletePost(e){
+    'use strict';
+    if(confirm('本当に削除していいですか？')){
+        document.getElementById('delete_'+ e.dataset.id).submit();
+    }
+}
+</script>
+
 @endsection
