@@ -19,7 +19,8 @@ Route::group(['prefix'=>'memories','middleware'=>'auth'],function(){
     Route::get('index','MemoryController@index')->name('memories.index');
     Route::get('create','MemoryController@create')->name('memories.create');
     Route::post('store','MemoryController@store')->name('memories.store');
-    Route::get('{id}/edit','MemoryController@edit')->name('memories.edit');
+    Route::get('edit/{id}','MemoryController@edit')->name('memories.edit');
+    Route::post('update/{id}','MemoryController@update')->name('memories.update');
 });
 
 Auth::routes();

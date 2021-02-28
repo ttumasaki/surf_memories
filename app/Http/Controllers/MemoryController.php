@@ -8,6 +8,8 @@ use App\Models\Memory;
 
 use Illuminate\Support\Facades\DB;
 
+
+
 class MemoryController extends Controller
 {
     //
@@ -108,5 +110,24 @@ class MemoryController extends Controller
         $memory = Memory::find($id);
 
         return view('memories/edit', compact('memory'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $memory = Memory::find($id);
+
+        $memory->point = $request->input('point');
+        $memory->date = $request->input('date');
+        $memory->size = $request->input('size');
+        $memory->w_condition = $request->input('w_condition');
+        $memory->number = $request->input('number');
+        $memory->state = $request->input('state');
+        $memory->direction = $request->input('direction');
+        $memory->people = $request->input('people');
+        $memory->image = $request->input('image');
+
+        $memory->save();
+
+        return redirect('memories/index');
     }
 }
