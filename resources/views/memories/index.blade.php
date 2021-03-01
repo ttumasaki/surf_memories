@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    <form class="d-flex" method="GET" action="{{route('memories.index')}}">
+      <input class="form-control me-2" type="search" placeholder="（例）全日ポイント" aria-label="Search" name="search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
     <form method='GET' action="{{route('memories.create')}}">
     @csrf
         <button type='submit' class='btn btn-primary'>波情報を登録</button>

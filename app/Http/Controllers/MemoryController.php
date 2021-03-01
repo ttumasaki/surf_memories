@@ -15,8 +15,27 @@ use App\Http\Requests\StoreMemory;
 class MemoryController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+        
+        $query = DB::table('memories');
+
+        if($search !== null){
+            $search_split = mb_convert_kana($search,'s');
+
+            $search_split2 = preg_split('/[\s]+/',$search_split,-1,PREG_SPLIT_NO_EMPTY);
+
+            foreach($search_split2 as $value)
+            {
+            $query->where('point','like','%'.$value.'%');
+            }
+        };
+
+        $query->select('id','point','date','size','w_condition','number','state','direction','people');
+        $query->orderBy('date','desc');
+        $memories = $query->paginate(20);
+
         $memories = DB::table('memories')
                     ->orderBy('date','desc')
                     ->paginate(20);
