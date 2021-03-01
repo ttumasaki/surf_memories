@@ -14,6 +14,16 @@
                         </div>
                     @endif
 
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                      <ul>
+                        @foreach($errors->all() as $error)
+                          <li>{{$error}}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="{{route('memories.store')}}">
                     @csrf
 
@@ -103,8 +113,8 @@
                           <option value="6">51人〜</option>
                         </select><br>
 
-                      波の画像・動画(任意)<br>
-                      <input type="file" name="image" multiple accept=".png,.jpg,.gif,.image/jpg,image/gif,.heic,.mov,.mp4"><br>
+                      <!-- 波の画像・動画(任意)<br>
+                      <input type="file" name="image" multiple accept=".png,.jpg,.gif,.image/jpg,image/gif,.heic,.mov,.mp4"><br> -->
 
                     <input type="submit" class="btn btn-info" value="登録する">
                   </form>
