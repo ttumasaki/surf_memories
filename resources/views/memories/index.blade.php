@@ -36,6 +36,7 @@
                 </li>
             @endforeach
         </ul>
+        {{$memories->links()}}
     </div>
 </div>
 

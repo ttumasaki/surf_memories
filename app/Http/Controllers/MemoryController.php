@@ -19,7 +19,7 @@ class MemoryController extends Controller
     {
         $memories = DB::table('memories')
                     ->orderBy('date','desc')
-                    ->get();
+                    ->paginate(20);
 
         $memory = Memory::first();
 
