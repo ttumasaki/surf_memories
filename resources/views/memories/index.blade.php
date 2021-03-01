@@ -27,7 +27,6 @@
                 <li class="list-group-item">波の状態 : {{$state}}</li>
                 <li class="list-group-item">風の向き : {{$direction}}</li>
                 <li class="list-group-item">人数 : {{$people}}</li>
-                <!-- <li class="list-group-item">波の画像・動画 : {{$memory->image}}</li> -->
                 <li class="list-group-item">
                     <form action="{{ route('memories.edit',['id' => $memory->id ])}}" method="GET">
                     @csrf

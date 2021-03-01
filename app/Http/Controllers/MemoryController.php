@@ -36,9 +36,9 @@ class MemoryController extends Controller
         $query->orderBy('date','desc');
         $memories = $query->paginate(20);
 
-        $memories = DB::table('memories')
-                    ->orderBy('date','desc')
-                    ->paginate(20);
+        // $memories = DB::table('memories')
+        //             ->orderBy('date','desc')
+        //             ->paginate(20);
 
         $memory = Memory::first();
 
