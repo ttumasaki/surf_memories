@@ -57,6 +57,7 @@ class MemoryController extends Controller
         return view('memories/create');
     }
 
+
     public function store(StoreMemory $request)
     {
         $memory = new Memory;
@@ -76,12 +77,14 @@ class MemoryController extends Controller
         return redirect('memories/index');
     }
 
+
     public function edit($id)
     {
         $memory = Memory::find($id);
 
         return view('memories/edit', compact('memory'));
     }
+
 
     public function update(Request $request, $id)
     {
@@ -102,6 +105,7 @@ class MemoryController extends Controller
         return redirect('memories/index');
     }
 
+    
     public function destroy($id)
     {
         $memory = Memory::find($id);
