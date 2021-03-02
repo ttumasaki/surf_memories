@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'memories','middleware'=>'auth'],function(){
+Route::group(['prefix'=>'memories'],function(){
     Route::get('index','MemoryController@index')->name('memories.index');
     Route::get('create','MemoryController@create')->name('memories.create');
     Route::post('store','MemoryController@store')->name('memories.store');
