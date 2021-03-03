@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('memories/index');
 });
 
 Route::group(['prefix'=>'memories'],function(){
